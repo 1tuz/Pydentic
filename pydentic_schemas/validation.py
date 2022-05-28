@@ -1,5 +1,8 @@
 from pydantic import BaseModel
 from pydantic import ValidationError
+from typing import Optional
+from typing import List
+
 from main import User
 
 
@@ -10,8 +13,9 @@ class PydantUsers(BaseModel):
     Phone: 'int'
     Email: 'str'
 
+
 input_json = User
 try:
-    user = User.parse_raw(input_json)
+    user = User.external_data(input_json)
 except ValidationError as e:
     print(e.json())
