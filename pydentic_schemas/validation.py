@@ -1,15 +1,16 @@
 from pydantic import ValidationError
 from pydantic import BaseModel
+from pydantic import EmailStr
 
 from main import User
 
 
 class PydantUsers(BaseModel):
-    ID: 'str'
+    ID: 'int'
     FirstName: 'str'
     LastName: 'str'
-    Phone: 'str'
-    Email: 'str'
+    Phone: 'int'
+    Email: 'EmailStr'
 
 
 input_json = str(User)
